@@ -32,6 +32,14 @@ func New(addr, password string, db int) (*RedisEngine, error) {
 
 	return &RedisEngine{client: c}, nil
 }
+func NewWithClient(c *redis.Client) (*RedisEngine, error) {
+
+	if c == nil {
+		return nil, errors.New("Redis connect failed:" + addr)
+	}
+
+	return &RedisEngine{client: c}, nil
+}
 
 func (e *RedisEngine) GetLock(lockKey string, expires time.Duration) (bool, error) {
 
