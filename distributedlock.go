@@ -2,14 +2,15 @@ package godistributedlock
 
 import (
 	"errors"
+	"github.com/luaxlou/godistributedlock/engines"
 	"time"
 )
 
 type DistributedLock struct {
-	engine DistributedLockEngine
+	engine engines.DistributedLockEngine
 }
 
-func New(engine DistributedLockEngine) *DistributedLock {
+func New(engine engines.DistributedLockEngine) *DistributedLock {
 	if engine == nil {
 		panic("Engine must not nil")
 	}
