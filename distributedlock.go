@@ -12,7 +12,7 @@ type DistributedLock struct {
 
 func New(engine engines.DistributedLockEngine) *DistributedLock {
 	if engine == nil {
-		panic("Engine must not nil")
+		panic("Engine must be not nil")
 	}
 
 	return &DistributedLock{engine: engine}

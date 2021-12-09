@@ -35,7 +35,7 @@ func New(addr, password string, db int) (*RedisEngine, error) {
 func NewWithClient(c *redis.Client) (*RedisEngine, error) {
 
 	if c == nil {
-		return nil, errors.New("Redis connect failed:" + addr)
+		return nil, errors.New("Redis client must be not nil.")
 	}
 
 	return &RedisEngine{client: c}, nil
